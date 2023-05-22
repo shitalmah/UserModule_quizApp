@@ -10,6 +10,7 @@ import { PagenotFoundComponent } from './pagenot-found/pagenot-found.component';
 import { SingleChoiceComponent } from './single-choice/single-choice.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule} from '@angular/common/http';
+import { TimeEndComponent } from './time-end/time-end.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule} from '@angular/common/http';
     LoginComponent,
     PagenotFoundComponent,
     SingleChoiceComponent,
-    NavbarComponent
+    NavbarComponent,
+    TimeEndComponent
    
 
   ],

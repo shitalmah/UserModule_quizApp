@@ -30,12 +30,7 @@ email:string | undefined
     this.getdata=this.http.get<any[]>(this.Url + data);
     console.log("Get data",this.http.get<any[]>(this.Url + data))
     return this.http.get<any[]>(this.Url +data);
-    
   }
-
-
-  
- 
 }
 
 

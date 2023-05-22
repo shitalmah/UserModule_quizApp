@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
-import { LoginService } from '../login.service';
-import { HeroCommunicateService } from '../hero-communicate.service';
+import { LoginService } from '../login/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,9 +12,9 @@ import { HeroCommunicateService } from '../hero-communicate.service';
 })
 export class LoginComponent implements OnInit {
   data:any;
-constructor(private router:Router,public LoginService:LoginService,public communicateservice:HeroCommunicateService){
+constructor(private router:Router,public LoginService:LoginService){
 
-  communicateservice.publish(this.data);
+ 
 }
 
 ngOnInit(): void {

@@ -4,6 +4,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotFoundComponent } from './pagenot-found/pagenot-found.component';
 import { SingleChoiceComponent } from './single-choice/single-choice.component';
+import { TimeEndComponent } from './time-end/time-end.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
  },
  {
   path: 'singlechoice', component: SingleChoiceComponent 
+},
+{
+  path: 'timeout', component: TimeEndComponent 
 },
  {
   path:'',redirectTo:'login',pathMatch:'full'
