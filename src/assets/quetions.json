@@ -1,0 +1,23 @@
+{
+    "questionId":1,
+    "question":"Which is of the fillowing is correct about typescript",
+    "options":
+    [
+        {
+            "answers":"angular is based on typescript",
+            "iscorrect":false
+        },
+        {
+            "answers":"angular is based on typescript",
+            "iscorrect":false
+        },
+        {
+            "answers":"angular is based on typescript",
+            "iscorrect":false
+        },
+        {
+            "answers":"angular is based on typescript",
+            "iscorrect":true
+        }
+    ]
+}
