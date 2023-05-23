@@ -1,6 +1,7 @@
+<form>
 <div class="container row mt-4">
-   <div style="text-align: right;">
-   <h6>Time Start: {{display}}</h6>
+   <div style="text-align: right; ">
+   <h6 >Time Left: {{display}}</h6>
 
    </div>
 </div>
@@ -17,15 +18,18 @@
                         <h5 class="text-primary">Q.{{CurrentQuetionNumber+1 }}</h5>
                         <h5 class="mt-1 ml-2">  {{quetionlist[CurrentQuetionNumber].questionText}}</h5>
                     </div><div class="ans ml-2">
-<label class="radio"> <input type="radio" name="brazil" value="brazil"> <span>Brazil</span>
+<label class="radio"> 
+    <input type="radio" name="brazil" value="brazil"> <span>Brazil</span>
 </label>    
 </div> 
 </div>
                 <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
                     <button class="btn btn-primary d-flex align-items-center btn-success" type="button" (click)="Previousquetion()"><i class="fa fa-angle-left mt-1 mr-1" ></i>&nbsp;previous</button>
                     <button class="btn btn-primary border-success align-items-center btn-success" type="button" (click)="nextquetions()">Next<i class="fa fa-angle-right ml-2"></i></button></div>
-            </div>
+                     
+                </div>
         </div>
     </div>
 </div>
+</form>
 

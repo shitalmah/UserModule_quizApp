@@ -22,7 +22,7 @@ export class SingleChoiceComponent implements OnInit {
   quetionlist:any[]=[];
   CurrentQuetionNumber :number=0;
   display: any;
-  
+  Singlechoice:any=false;
   //public interval: Time | undefined;
 
 
@@ -44,7 +44,7 @@ LoadQuestions(){
     //const navigationDetails: string[] = ['/userdetails'];
     this.singlechoiceservice.GetQuetionByQuizId(res.toString()).subscribe(res1=>{      
       this.quetionlist=res1;
-      
+      //this.Singlechoice=false;
    //      console.log(this.quetionlist);
     });
    /* if(res!=null)
@@ -94,6 +94,7 @@ LoadQuestions(){
  {
   if(this.CurrentQuetionNumber<this.quetionlist.length-1){
   this.CurrentQuetionNumber++;
+
   }
  }
 
