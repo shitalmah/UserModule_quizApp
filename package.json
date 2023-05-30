@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",    
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.0",
@@ -19,7 +18,10 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "linqts": "^1.15.0",
+    "ngx-countdown": "^15.0.0",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.7.6",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

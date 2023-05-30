@@ -1,35 +1,237 @@
-<form>
-<div class="container row mt-4">
-   <div style="text-align: right; ">
-   <h6 >Time Left: {{display}}</h6>
+<form  >
+    <div class="container row mt-4">
+        <div style="text-align: right; ">
+            <!-- <countdown [config]="{leftTime:display}"></countdown> -->
+            <h6>Time Left: {{display}}</h6>
+            <!-- <ion-item>
+    <ion-label>Duration</ion-label>
+    <ion-input [(ngModel)]="display" mbsc-timespan></ion-input>
+</ion-item> -->
 
-   </div>
-</div>
-<div class="container mt-5">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-10 col-lg-10">
-            <div class="border">
-                <div class="question bg-white p-3 border-bottom">
-                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                        <h4>MCQ</h4><span>({{CurrentQuetionNumber+1}} of {{quetionlist.length}})</span></div>
-                </div>
-                <div class="question bg-white p-3 border-bottom">
-                    <div class="d-flex flex-row align-items-center question-title">
-                        <h5 class="text-primary">Q.{{CurrentQuetionNumber+1 }}</h5>
-                        <h5 class="mt-1 ml-2">  {{quetionlist[CurrentQuetionNumber].questionText}}</h5>
-                    </div><div class="ans ml-2">
-<label class="radio"> 
-    <input type="radio" name="brazil" value="brazil"> <span>Brazil</span>
-</label>    
-</div> 
-</div>
-                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-                    <button class="btn btn-primary d-flex align-items-center btn-success" type="button" (click)="Previousquetion()"><i class="fa fa-angle-left mt-1 mr-1" ></i>&nbsp;previous</button>
-                    <button class="btn btn-primary border-success align-items-center btn-success" type="button" (click)="nextquetions()">Next<i class="fa fa-angle-right ml-2"></i></button></div>
-                     
-                </div>
         </div>
     </div>
-</div>
+
+
+    <div class="container mt-5" *ngIf="Singlechoice">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10 col-lg-10">
+                <div class="border">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row justify-content-between align-items-center NeoQuiz">
+                            <h4>NeoQuiz</h4><span>({{CurrentQuetionNumber+1}} of {{quetionlist.length}})</span>
+                        </div>
+                    </div>
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h5 class="text-primary">Q.{{CurrentQuetionNumber+1 }}</h5>
+                            <h5 class="mt-1 ml-2"> {{quetiontext}}</h5>
+                        </div>
+
+
+                        <div class="container">
+                            <div class="row">
+                                <br />
+                                <div class="panel panel-primary">
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="funkyradio">
+                                                <div class="funkyradio-primary">
+                                                   
+                                                    <input type="radio" name="radio" id="radio1" />
+                                                    <label for="radio1"><span>1.{{this.GetOptionlist[0]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-info">
+                                                    <input type="radio" name="radio" id="radio2"   />
+                                                    <label for="radio2"><span>2.{{this.GetOptionlist[1]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-success">
+                                                    <input type="radio" name="radio" id="radio3" />
+                                                    <label for="radio3"><span>3.{{this.GetOptionlist[2]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-danger">
+                                                    <input type="radio" name="radio" id="radio4" />
+                                                    <label for="radio4"><span>4.{{this.GetOptionlist[3]}}</span></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                       
+                        <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                            <button class="btn btn-primary  d-flex align-items-center btn-success" type="button"
+                                (click)="Previousquetion()"><i class="fa fa-angle-left mt-1 mr-1"
+                                    style="position: fixed; bottom: 0px; right: 0px;"></i>&nbsp;previous</button>
+                            <button class="btn btn-primary border-success align-items-center btn-success" type="button"
+                            (click)="OnSubmited()"     (click)="nextquetions()">{{btnNext}}<i class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" *ngIf="Multichoce">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10 col-lg-10">
+                <div class="border">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row justify-content-between align-items-center NeoQuiz">
+                            <h4>NeoQuiz</h4><span>({{CurrentQuetionNumber+1}} of {{quetionlist.length}})</span>
+                        </div>
+                    </div>
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h5 class="text-primary">Q.{{CurrentQuetionNumber+1 }}</h5>
+                            <h5 class="mt-1 ml-2"> {{quetiontext}}</h5>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <br />
+                                <div class="panel panel-primary">
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="funkyradio">
+                                                <div class="funkyradio-primary">
+                                                    <input type="radio" name="radio" id="radio1"  />
+                                                    <label for="radio1"><span>1.{{this.GetOptionlist[0]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-info">
+                                                    <input type="radio" name="radio" id="radio2"  />
+                                                    <label for="radio2"><span>2.{{this.GetOptionlist[1]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-success">
+                                                    <input type="radio" name="radio" id="radio3" />
+                                                    <label for="radio3"><span>3.{{this.GetOptionlist[2]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-danger">
+                                                    <input type="radio" name="radio" id="radio4" />
+                                                    <label for="radio4"><span>4.{{this.GetOptionlist[3]}}</span></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                            <button class="btn btn-primary d-flex align-items-center btn-success" type="button"
+                                (click)="Previousquetion()"><i
+                                    class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous</button>
+                            <button class="btn btn-primary border-success align-items-center btn-success" type="button"
+                            (click)="OnSubmited()" (click)="nextquetions()">Next<i class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-5" *ngIf="TextDescription">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10 col-lg-10">
+                <div class="border">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row justify-content-between align-items-center NeoQuiz">
+                            <h4>NeoQuiz</h4><span>({{CurrentQuetionNumber+1}} of {{quetionlist.length}})</span>
+                        </div>
+                    </div>
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h5 class="text-primary">Q.{{CurrentQuetionNumber+1 }}</h5>
+                            <h5 class="mt-1 ml-2"> {{ quetiontext}}</h5>                           
+                        </div>
+                      <div>
+                        <input type="text"/>
+                      </div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                            <button class="btn btn-primary d-flex align-items-center btn-success" type="button"
+                                (click)="Previousquetion()"><i
+                                    class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous</button>
+                            <button class="btn btn-primary border-success align-items-center btn-success" type="button"
+                            (click)="OnSubmited()" (click)="nextquetions()">Next<i class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5" *ngIf="FillIntheBlanks">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10 col-lg-10">
+                <div class="border">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row justify-content-between align-items-center NeoQuiz">
+                            <h4>NeoQuiz</h4><span>({{CurrentQuetionNumber+1}} of {{quetionlist.length}})</span>
+                        </div>
+                    </div>
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h5 class="text-primary">Q.{{CurrentQuetionNumber+1 }}</h5>
+                            <h5 class="mt-1 ml-2"> {{quetiontext}}</h5>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <br />
+                                <div class="panel panel-primary">
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="funkyradio">
+                                                <div class="funkyradio-primary">
+                                                    <input type="radio" name="radio" id="radio1"  />
+                                                    <label for="radio1"><span>1.{{this.GetOptionlist[0]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-info">
+                                                    <input type="radio" name="radio" id="radio2"  />
+                                                    <label for="radio2"><span>2.{{this.GetOptionlist[1]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-success">
+                                                    <input type="radio" name="radio" id="radio3" />
+                                                    <label for="radio3"><span>3.{{this.GetOptionlist[2]}}</span></label>
+                                                </div>
+                                                <div class="funkyradio-danger">
+                                                    <input type="radio" name="radio" id="radio4" />
+                                                    <label for="radio4"><span>4.{{this.GetOptionlist[3]}}</span></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                            <button class="btn btn-primary d-flex align-items-center btn-success" type="button"
+                                (click)="Previousquetion()"><i
+                                    class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous</button>
+                            <button class="btn btn-primary border-success align-items-center btn-success" type="button"
+                            (click)="OnSubmited()"    (click)="nextquetions()">Next<i class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
 </form>
+
+
+
 

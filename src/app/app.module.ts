@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import{CountdownModule} from 'ngx-countdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule} from '@angular/common/http';
 import { TimeEndComponent } from './time-end/time-end.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { TimeEndComponent } from './time-end/time-end.component';
     PagenotFoundComponent,
     SingleChoiceComponent,
     NavbarComponent,
-    TimeEndComponent
+    TimeEndComponent,
+    
    
 
   ],
@@ -29,7 +31,8 @@ import { TimeEndComponent } from './time-end/time-end.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

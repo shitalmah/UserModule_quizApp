@@ -16,8 +16,8 @@ email:string | undefined
   header : any;  
   
   constructor(private http : HttpClient) {   
-  
-    this.Url = 'https://localhost:7278/api/User/';  
+    //https://localhost:7137/api/User
+    this.Url = 'https://localhost:7137/api/User/';  
   
     const headerSettings: {[name: string]: string | string[]; } = {};  
     this.header = new HttpHeaders(headerSettings);  

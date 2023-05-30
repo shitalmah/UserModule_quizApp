@@ -3,6 +3,8 @@ import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { LoginService } from '../login/login.service';
+import Swal from 'sweetalert2';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -40,19 +42,35 @@ LoginSubmited() {
      // alert(res.toString());
      if(res!=null)
      {
-      this.data=res;       
+      this.data=res;
+      console.log(this.data)      
+      localStorage.setItem("quizId",this.data.quizId) ;
       this.router.navigate(navigationDetails);
      }
      else
      {
-      
-      alert("Email is invalid");
+      Swal.fire({
+        title: 'Invalid Creadential!!!Please check your creadential.....',
+        //showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Ok',
+        //denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          
+       Swal.fire("title", '', 'info')
+        } else if (result.isDenied) {
+          //Swal.fire("title", '', 'info')
+        }
+      }) 
+     
      }
     });
   }
 
 
-
+  
 
 
 
